@@ -1,0 +1,84 @@
+﻿@model IEnumerable<ShortUrl.WebUI.Models.UrlViewModel>
+
+@{
+    ViewBag.Title = "Home Page";
+
+    var opt = new AjaxOptions
+    {
+        
+        UpdateTargetId = "Urls",
+        //OnSuccess = "AppendShortUrl"
+        //OnBegin = "begin",
+        //OnSuccess = "success",
+        //OnFailure = "fail"
+    };
+}
+
+<script>
+    ////$(document).ready(function() {
+    ////        $('#btnCreateShort').click(function() {
+    ////            var text = $('#txtRealUrl').val();
+    ////            CreateShortUrl(text);
+    ////        });
+    ////        $('#txtRealUrl').on('paste', function(e) {
+    ////            var elem = $(this);
+
+    ////            setTimeout(function() {
+    ////                var text = elem.val();
+    ////                CreateShortUrl(text);
+    ////            }, 100);
+    ////        });
+    ////    });
+
+
+    ////}
+
+    function success(parameters) {
+        alert("success");
+    }
+
+    function begin(parameters) {
+        alert("begin");
+    }
+
+    function fail(parameters) {
+        alert("fail");
+    }
+
+    function AppendShortUrl() {
+
+        //alert("I'm Here");
+        //$.ajax({
+        //    url: 'Home/CreateShortUrl',
+        //    type: "POST",
+        //    data: { realUrl: realUrl },
+        //    success: function(str) {
+        //        var a = $('<a>', {
+        //            text: str,
+        //            href: str
+        //        });
+
+        //        $('#shortUrl a').remove();
+        //        $('#shortUrl').append(a);
+        //    }
+        //});
+    }
+</script>
+
+@using (Ajax.BeginForm("UrlsView", opt))
+{
+<div id="rectangle"  class="rectangle">
+    <div id="shortener">
+        <div id="textBlock">
+            @Html.TextBox("realUrl")
+            @*<input id="txtRealUrl" type="text" />*@
+        </div>
+        <input id="btnCreateShort" type="submit" value="Shorten" />
+        
+    </div>
+    
+</div>
+    
+    @Html.Action("UrlsView")
+}
+

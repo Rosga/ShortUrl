@@ -1,0 +1,39 @@
+﻿@model System.Collections.Generic.List<ShortUrl.WebUI.Models.UrlViewModel>
+
+@{
+    Layout = null;
+}
+
+<div id="Urls">
+    <hr />
+    <p align="center">Your shortenet Url:</p>
+
+    <ul id="shortUrl">
+        @{
+            if (@Model!=null && @Model.Count >=1 && @Model.First().RecentlyAdded)
+            {
+                Html.RenderPartial("GetShortUrl", @Model.First());
+            }
+            else
+            {
+                <li>@ViewBag.ErMessage</li>
+            }
+            
+        }
+    </ul>
+    
+@{if (User.Identity.IsAuthenticated)
+    {
+
+    <hr />
+    <p align="center">Links you've made recently:</p>
+
+    <ul>
+                @foreach (var url in Model.Where(m => m.RecentlyAdded == false))
+                {
+                    Html.RenderPartial("GetShortUrl", url);
+                }   
+    </ul>
+    }
+}
+</div>

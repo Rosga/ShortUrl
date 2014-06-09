@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="ShortUrl.Domain.Concrete.EfUrlRepository">
+    <Position X="3.5" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAEAAAAAAQABEAgAAAAAAAAAAAAAAAAACAAAAAAIAA=</HashCode>
+      <FileName>Concrete\EfUrlRepository.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="ShortUrl.Domain.Concrete.ShortUrlContext">
+    <Position X="1.5" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Concrete\ShortUrlContext.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ShortUrl.Domain.Entities.Url">
+    <Position X="5.75" Y="2" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAACAAAAAAAAAAAAAAAAAAAAAAAAAABAQAAAAIAAAA=</HashCode>
+      <FileName>Entities\Url.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Interface Name="ShortUrl.Domain.Abstract.IUrlRepository">
+    <Position X="1.5" Y="1.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAACAAAAAAAAA=</HashCode>
+      <FileName>Abstract\IUrlRepository.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

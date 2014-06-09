@@ -1,0 +1,21 @@
+﻿@model ShortUrl.WebUI.Models.UrlViewModel
+
+@*<script>
+    //$(document).ready(function() {
+    //        alert("Hello");
+
+    //    })
+</script>*@
+
+@{
+    Layout = null;
+}
+
+<li class="urlBlock">
+    <img id="img_@Model.ShortenedUrl" src="data:image/Bmp;base64,@Convert.ToBase64String(Model.Image)" class="urlImage" height="120" width="160" />
+    @**@<div class="links">
+        <div class="AnShortUrl"><a href="@Model.ShortenedUrl">@Model.ShortenedUrl</a></div>
+        <div class="AnRealUrl"><p>@Model.RealUrl</p></div>
+    </div>
+    <button data-clipboard-text="@Model.ShortenedUrl" value="Copy" class="copyButton">Copy</button>
+</li>
