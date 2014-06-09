@@ -56,6 +56,8 @@ namespace ShortUrl.WebUI.Utilities
             //    return;
             //}
             webBrowser.DocumentCompleted += new WebBrowserDocumentCompletedEventHandler(WebBrowser_DocumentCompleted);
+            while (webBrowser.ReadyState != WebBrowserReadyState.Complete)
+            System.Windows.Forms.Application.DoEvents();
             //try
             //{
             //    while (webBrowser.ReadyState != WebBrowserReadyState.Complete)
