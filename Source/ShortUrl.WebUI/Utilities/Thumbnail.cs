@@ -46,9 +46,7 @@ namespace ShortUrl.WebUI.Utilities
             webBrowser.Navigate(this.Url);
             //try
             //{
-            //    webBrowser.Dispose();
             //    webBrowser.Navigate(this.Url);
-
             //}
             //catch (Exception exception)
             //{
@@ -57,7 +55,7 @@ namespace ShortUrl.WebUI.Utilities
             //    webBrowser.Dispose();
             //    return;
             //}
-            //webBrowser.DocumentCompleted += new WebBrowserDocumentCompletedEventHandler(WebBrowser_DocumentCompleted);
+            webBrowser.DocumentCompleted += new WebBrowserDocumentCompletedEventHandler(WebBrowser_DocumentCompleted);
             //try
             //{
             //    while (webBrowser.ReadyState != WebBrowserReadyState.Complete)
@@ -71,26 +69,23 @@ namespace ShortUrl.WebUI.Utilities
             //    return;
             //}
 
-            ThumbnailImage = new Bitmap(120, 80);
             webBrowser.Dispose();
         }
         private void WebBrowser_DocumentCompleted(object sender, WebBrowserDocumentCompletedEventArgs e)
         {
-            //WebBrowser webBrowser = (WebBrowser)sender;
-            //webBrowser.ClientSize = new Size(this.BrowserWidth, this.BrowserHeight);
-            //webBrowser.ScrollBarsEnabled = false;
-            //this.ThumbnailImage = new Bitmap(webBrowser.Bounds.Width, webBrowser.Bounds.Height);
-            //webBrowser.BringToFront();
-            //webBrowser.DrawToBitmap(ThumbnailImage, webBrowser.Bounds);
-            //this.ThumbnailImage = (Bitmap)ThumbnailImage.GetThumbnailImage(Width, Height, null, IntPtr.Zero);
+            WebBrowser webBrowser = (WebBrowser)sender;
+            webBrowser.ClientSize = new Size(this.BrowserWidth, this.BrowserHeight);
+            webBrowser.ScrollBarsEnabled = false;
+            this.ThumbnailImage = new Bitmap(webBrowser.Bounds.Width, webBrowser.Bounds.Height);
+            webBrowser.BringToFront();
+            webBrowser.DrawToBitmap(ThumbnailImage, webBrowser.Bounds);
+            this.ThumbnailImage = (Bitmap)ThumbnailImage.GetThumbnailImage(Width, Height, null, IntPtr.Zero);
         }
 
         public static byte[] CreateThumbnailImage(string url, int width, int height)
         {
             Thumbnail thumbnail = new Thumbnail(url, 1024, 768, width, height);
             Bitmap image = thumbnail.GenerateThumbnail();
-
-            //var image = new Bitmap(120, 80);
 
             MemoryStream ms = new MemoryStream();
             image.Save(ms, ImageFormat.Bmp);
